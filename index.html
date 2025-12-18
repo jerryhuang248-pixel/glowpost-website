@@ -158,21 +158,30 @@
             </div>
 
             <!-- Right: Visual Collage -->
-            <div class="col-span-1 md:col-span-5 relative h-[500px] flex items-center justify-center">
+            <div class="col-span-1 md:col-span-5 relative flex items-center justify-center min-h-[400px]">
                 <!-- Abstract blobs background -->
                 <div class="absolute w-full h-full bg-soft-purple rounded-full blur-[100px] opacity-40"></div>
                 
-                <!-- Floating Cards -->
-                <div class="absolute top-0 right-0 w-64 h-80 bg-neon-lime border-[3px] border-dope-black rounded-3xl transform rotate-6 z-10 overflow-hidden shadow-hard hover:rotate-0 transition-transform duration-300">
-                    <img src="https://images.unsplash.com/photo-1573455494060-c5595004fb6c?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Fashion result">
-                    <div class="absolute bottom-2 left-2 bg-white px-2 py-1 border-2 border-black rounded-lg text-xs font-bold">AFTER</div>
-                </div>
-                <div class="absolute bottom-10 left-0 w-60 h-72 bg-white border-[3px] border-dope-black rounded-3xl transform -rotate-12 z-20 overflow-hidden shadow-hard hover:rotate-0 transition-transform duration-300 grayscale hover:grayscale-0">
-                     <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-60" alt="Bad lighting photo">
-                     <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="text-4xl opacity-50">📷</span>
-                     </div>
-                     <div class="absolute bottom-2 right-2 bg-gray-200 px-2 py-1 border-2 border-black rounded-lg text-xs font-bold">BEFORE</div>
+                <!-- Floating Cards Container: 使用 Grid 网格布局，确保不重叠 -->
+                <div class="relative z-10 grid grid-cols-2 gap-6 w-full items-center">
+                    
+                    <!-- Image 1 (After / Polish Result) -->
+                    <!-- 替换下方 src 中的链接即可更换 After 图片 -->
+                    <div class="w-full aspect-[4/5] bg-neon-lime border-[3px] border-dope-black rounded-3xl transform rotate-3 hover:rotate-0 transition-transform duration-300 overflow-hidden shadow-hard">
+                        <img src="https://images.unsplash.com/photo-1573455494060-c5595004fb6c?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Fashion result">
+                        <div class="absolute bottom-2 left-2 bg-white px-2 py-1 border-2 border-black rounded-lg text-xs font-bold">AFTER</div>
+                    </div>
+
+                    <!-- Image 2 (Before / Raw Photo) -->
+                    <!-- 使用 mt-12 制造下沉错落感 -->
+                    <!-- 替换下方 src 中的链接即可更换 Before 图片 -->
+                    <div class="w-full aspect-[4/5] bg-white border-[3px] border-dope-black rounded-3xl transform -rotate-3 hover:rotate-0 transition-transform duration-300 overflow-hidden shadow-hard mt-12 grayscale hover:grayscale-0">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-60" alt="Bad lighting photo">
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <span class="text-4xl opacity-50">📷</span>
+                            </div>
+                            <div class="absolute bottom-2 right-2 bg-gray-200 px-2 py-1 border-2 border-black rounded-lg text-xs font-bold">BEFORE</div>
+                    </div>
                 </div>
             </div>
         </div>
