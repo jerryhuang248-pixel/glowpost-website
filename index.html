@@ -98,10 +98,10 @@
 <body class="border-x-0 md:border-x-[20px] border-dope-bg">
 
     <!-- Navbar -->
-    <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-        <div class="bg-white border-[3px] border-dope-black rounded-full px-6 py-3 shadow-hard flex items-center justify-between w-full max-w-5xl">
+    <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 w-full">
+        <div class="bg-white border-[3px] border-dope-black rounded-full px-6 py-3 shadow-hard flex items-center justify-between w-full max-w-5xl relative z-50 bg-white">
             <!-- 多巴胺文字 Logo -->
-            <a href="#" class="font-display font-bold text-2xl tracking-tight flex items-center gap-1.5 hover:scale-105 transition-transform duration-300">
+            <a href="#" class="font-display font-bold text-xl md:text-2xl tracking-tight flex items-center gap-1.5 hover:scale-105 transition-transform duration-300">
                 <span class="text-hot-pink">You</span>
                 <span class="text-electric-blue">Shoot</span>
                 <span class="text-dope-black">I</span>
@@ -109,6 +109,7 @@
                 <span class="bg-neon-lime text-dope-black px-1.5 border-2 border-dope-black rounded-md transform -rotate-3 inline-block shadow-[2px_2px_0px_#111111]">Polish.</span>
             </a>
             
+            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-2">
                 <a href="#work" class="px-5 py-2 rounded-full font-bold hover:bg-neon-lime transition-colors border border-transparent hover:border-dope-black">Work</a>
                 <a href="#services" class="px-5 py-2 rounded-full font-bold hover:bg-electric-blue hover:text-white transition-colors border border-transparent hover:border-dope-black">Services</a>
@@ -116,9 +117,23 @@
                 <a href="#contact" class="px-5 py-2 bg-dope-black text-white rounded-full font-bold hover:bg-hot-pink transition-colors">Let's Talk!</a>
             </div>
 
-            <button class="md:hidden text-2xl">
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl p-2">
                 <i class="ph-bold ph-list"></i>
             </button>
+        </div>
+
+        <!-- Mobile Full Screen Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-dope-bg z-40 hidden flex-col items-center justify-center gap-8 text-3xl font-display font-bold transition-all duration-300">
+            <!-- Close Button -->
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-4xl p-2 border-[3px] border-dope-black rounded-full w-12 h-12 flex items-center justify-center hover:bg-hot-pink hover:text-white transition-colors">
+                <i class="ph-bold ph-x"></i>
+            </button>
+
+            <a href="#work" class="mobile-link hover:text-neon-lime hover:scale-110 transition-transform">Work</a>
+            <a href="#services" class="mobile-link hover:text-electric-blue hover:scale-110 transition-transform">Services</a>
+            <a href="#pricing" class="mobile-link hover:text-sunny-yellow hover:scale-110 transition-transform">Pricing</a>
+            <a href="#contact" class="px-8 py-3 bg-dope-black text-white rounded-full hover:bg-hot-pink transition-colors mobile-link text-2xl">Let's Talk!</a>
         </div>
     </nav>
 
@@ -166,16 +181,16 @@
                 <div class="relative z-10 grid grid-cols-2 gap-6 w-full items-center">
                     
                     <!-- Image 1 (After / Polish Result) -->
-                    <!-- 替换下方 src 中的链接即可更换 After 图片 -->
                     <div class="w-full aspect-[4/5] bg-neon-lime border-[3px] border-dope-black rounded-3xl transform rotate-3 hover:rotate-0 transition-transform duration-300 overflow-hidden shadow-hard">
-                        <img src="./After1.jpg" class="w-full h-full object-cover" alt="Fashion result">"
+                        <!-- 这里引用了 After1.jpg -->
+                        <img src="./After1.jpg" class="w-full h-full object-cover" alt="Fashion result">
                         <div class="absolute bottom-2 left-2 bg-white px-2 py-1 border-2 border-black rounded-lg text-xs font-bold">AFTER</div>
                     </div>
 
                     <!-- Image 2 (Before / Raw Photo) -->
                     <!-- 使用 mt-12 制造下沉错落感 -->
-                    <!-- 替换下方 src 中的链接即可更换 Before 图片 -->
                     <div class="w-full aspect-[4/5] bg-white border-[3px] border-dope-black rounded-3xl transform -rotate-3 hover:rotate-0 transition-transform duration-300 overflow-hidden shadow-hard mt-12 grayscale hover:grayscale-0">
+                            <!-- 这里引用了 Before1.jpg -->
                             <img src="./Before1.jpg" class="w-full h-full object-cover opacity-60" alt="Bad lighting photo">
                             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                             <span class="text-4xl opacity-50">📷</span>
@@ -415,6 +430,34 @@
         </div>
     </footer>
 
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // 禁止背景滚动
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                document.body.style.overflow = ''; // 恢复背景滚动
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+
+        // 点击链接自动关闭菜单
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
+
 </body>
 </html>
-
