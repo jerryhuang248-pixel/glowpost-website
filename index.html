@@ -99,7 +99,6 @@
 
     <!-- Navbar -->
     <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 w-full">
-        <!-- 容器宽度限制为 max-w-5xl 并居中，防止导航栏太宽 -->
         <div class="bg-white border-[3px] border-dope-black rounded-full px-6 py-3 shadow-hard flex items-center justify-between w-full max-w-5xl relative z-50">
             <!-- 多巴胺文字 Logo -->
             <a href="#" class="font-display font-bold text-xl md:text-2xl tracking-tight flex items-center gap-1.5 hover:scale-105 transition-transform duration-300">
@@ -111,8 +110,7 @@
             
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-2">
-                <a href="#work" class="px-5 py-2 rounded-full font-bold hover:bg-neon-lime transition-colors border border-transparent hover:border-dope-black">Work</a>
-                <a href="#services" class="px-5 py-2 rounded-full font-bold hover:bg-electric-blue hover:text-white transition-colors border border-transparent hover:border-dope-black">Services</a>
+                <a href="#new-work" class="px-5 py-2 rounded-full font-bold hover:bg-neon-lime transition-colors border border-transparent hover:border-dope-black">Work</a>
                 <a href="#pricing" class="px-5 py-2 rounded-full font-bold hover:bg-sunny-yellow transition-colors border border-transparent hover:border-dope-black">Pricing</a>
                 <a href="#contact" class="px-5 py-2 bg-dope-black text-white rounded-full font-bold hover:bg-hot-pink transition-colors">Let's Talk!</a>
             </div>
@@ -124,73 +122,43 @@
 
             <!-- Mobile Dropdown Menu -->
             <div id="mobile-menu" class="absolute top-[120%] left-0 right-0 bg-white border-[3px] border-dope-black rounded-3xl p-4 shadow-hard hidden flex-col gap-2 text-center overflow-hidden transition-all duration-300 origin-top w-full">
-                <a href="#work" class="mobile-link py-3 font-display font-bold text-xl hover:bg-neon-lime rounded-xl transition-colors block">Work</a>
-                <a href="#services" class="mobile-link py-3 font-display font-bold text-xl hover:bg-electric-blue hover:text-white rounded-xl transition-colors block">Services</a>
+                <a href="#new-work" class="mobile-link py-3 font-display font-bold text-xl hover:bg-neon-lime rounded-xl transition-colors block">Work</a>
                 <a href="#pricing" class="mobile-link py-3 font-display font-bold text-xl hover:bg-sunny-yellow rounded-xl transition-colors block">Pricing</a>
                 <a href="#contact" class="mobile-link py-3 font-display font-bold text-xl bg-dope-black text-white rounded-xl hover:bg-hot-pink transition-colors mt-2 block">Let's Talk!</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <!-- 修正重点：移除 min-h-[100dvh] 和 flex垂直居中。使用 padding-top (pt-32/pt-48) 确保内容在导航栏下方。w-full 确保宽度正常。 -->
-    <header class="w-full pt-32 md:pt-48 pb-20 px-4 md:px-10 max-w-7xl mx-auto relative block">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center w-full">
+    <!-- Hero Section (Centered Text Only) -->
+    <header class="w-full pt-32 md:pt-48 pb-20 px-4 md:px-10 max-w-7xl mx-auto relative block text-center">
+        <div class="flex flex-col items-center justify-center w-full max-w-4xl mx-auto">
             
-            <!-- Left: Text -->
-            <div class="col-span-1 md:col-span-7 relative z-10 text-center md:text-left">
-                
-                <!-- Badge -->
-                <div class="inline-block bg-sunny-yellow border-[3px] border-dope-black px-4 py-1 rounded-full font-bold text-sm mb-6 transform -rotate-2 shadow-hard-sm">
-                    ✨ AI CONTENT STUDIO
-                </div>
-                
-                <h1 class="text-5xl md:text-8xl font-black leading-[0.95] md:leading-[0.9] tracking-tight mb-8">
-                    YOU SHOOT <br>
-                    I POLISH. <br>
-                    <span class="relative inline-block text-white px-2 mt-2 md:mt-0">
-                        <span class="absolute inset-0 bg-hot-pink transform skew-x-[-6deg] -z-10 border-[3px] border-dope-black rounded-lg"></span>
-                        YOUR VISION.
-                    </span>
-                </h1>
-
-                <p class="text-lg md:text-2xl font-medium text-gray-800 max-w-lg mb-10 leading-snug mx-auto md:mx-0">
-                    Send us your phone pics, we'll turn them into <span class="bg-neon-lime px-1 border-b-2 border-dope-black">scroll-stopping</span> visuals for your social media.
-                </p>
-
-                <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start">
-                    <a href="#work" class="px-8 py-4 bg-dope-black text-white text-lg font-bold rounded-2xl border-[3px] border-dope-black shadow-hard hover:bg-white hover:text-dope-black hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all text-center">
-                        View Examples 🚀
-                    </a>
-                    <a href="#contact" class="px-8 py-4 bg-white text-dope-black text-lg font-bold rounded-2xl border-[3px] border-dope-black shadow-hard hover:bg-sunny-yellow hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex items-center justify-center gap-2 text-center">
-                        <i class="ph-bold ph-whatsapp-logo text-2xl"></i> Chat with Us
-                    </a>
-                </div>
+            <!-- Badge -->
+            <div class="inline-block bg-sunny-yellow border-[3px] border-dope-black px-4 py-1 rounded-full font-bold text-sm mb-6 transform -rotate-2 shadow-hard-sm">
+                ✨ AI CONTENT STUDIO
             </div>
+            
+            <h1 class="text-5xl md:text-8xl font-black leading-[0.95] md:leading-[0.9] tracking-tight mb-8">
+                YOU SHOOT <br>
+                I POLISH. <br>
+                <span class="relative inline-block text-white px-2 mt-2 md:mt-0">
+                    <span class="absolute inset-0 bg-hot-pink transform skew-x-[-6deg] -z-10 border-[3px] border-dope-black rounded-lg"></span>
+                    YOUR VISION.
+                </span>
+            </h1>
 
-            <!-- Right: Visual Collage -->
-            <div class="col-span-1 md:col-span-5 relative flex items-center justify-center min-h-[300px] md:min-h-[500px] mt-8 md:mt-0">
-                <!-- Abstract blobs background -->
-                <div class="absolute w-full h-full bg-soft-purple rounded-full blur-[100px] opacity-40"></div>
-                
-                <!-- Floating Cards Container -->
-                <div class="relative z-10 grid grid-cols-2 gap-4 md:gap-6 w-full items-center max-w-md md:max-w-full mx-auto">
-                    
-                    <!-- Image 1 (After) -->
-                    <div class="w-full aspect-[4/5] bg-neon-lime border-[3px] border-dope-black rounded-3xl transform rotate-3 hover:rotate-0 transition-transform duration-300 overflow-hidden shadow-hard">
-                        <img src="./After1.jpg" class="w-full h-full object-cover" alt="Fashion result">
-                        <div class="absolute bottom-2 left-2 bg-white px-2 py-1 border-2 border-black rounded-lg text-xs font-bold">AFTER</div>
-                    </div>
+            <p class="text-lg md:text-2xl font-medium text-gray-800 max-w-2xl mb-10 leading-snug mx-auto">
+                WE TURN YOUR SHOTS INTO WOWS <br>
+                <span class="text-gray-600">Send us your raw phone pics. We polish them into <span class="bg-neon-lime px-1 border-b-2 border-dope-black text-black">stunning visuals</span>.</span>
+            </p>
 
-                    <!-- Image 2 (Before) -->
-                    <div class="w-full aspect-[4/5] bg-white border-[3px] border-dope-black rounded-3xl transform -rotate-3 hover:rotate-0 transition-transform duration-300 overflow-hidden shadow-hard mt-8 md:mt-12 grayscale hover:grayscale-0">
-                            <img src="./Before1.jpg" class="w-full h-full object-cover opacity-60" alt="Bad lighting photo">
-                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <span class="text-4xl opacity-50">📷</span>
-                            </div>
-                            <div class="absolute bottom-2 right-2 bg-gray-200 px-2 py-1 border-2 border-black rounded-lg text-xs font-bold">BEFORE</div>
-                    </div>
-                </div>
+            <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center">
+                <a href="#new-work" class="px-8 py-4 bg-dope-black text-white text-lg font-bold rounded-2xl border-[3px] border-dope-black shadow-hard hover:bg-white hover:text-dope-black hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all text-center">
+                    View Examples 🚀
+                </a>
+                <a href="#contact" class="px-8 py-4 bg-white text-dope-black text-lg font-bold rounded-2xl border-[3px] border-dope-black shadow-hard hover:bg-sunny-yellow hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex items-center justify-center gap-2 text-center">
+                    <i class="ph-bold ph-whatsapp-logo text-2xl"></i> Chat with Us
+                </a>
             </div>
         </div>
     </header>
@@ -209,91 +177,75 @@
         </div>
     </div>
 
-    <!-- Features / Services Grid -->
-    <section id="services" class="px-4 md:px-10 max-w-7xl mx-auto mb-32 w-full">
+    <!-- New Gallery Section (5 Groups of 2 Images) -->
+    <section id="new-work" class="px-4 md:px-10 max-w-6xl mx-auto mb-32 w-full">
         <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-6xl font-black mb-4">WE TURN YOUR SHOTS INTO WOWS</h2>
-            <p class="text-lg md:text-xl font-medium px-4">Send us your raw phone pics. We polish them into <span class="bg-sunny-yellow border border-dope-black px-1">stunning visuals</span>.</p>
+            <h2 class="text-4xl md:text-5xl font-black mb-4">RECENT POLISHES</h2>
+            <p class="text-lg font-medium">From raw to wow.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Card 1 -->
-            <div class="bg-white p-8 rounded-[2rem] border-[3px] border-dope-black shadow-hard hover:shadow-hard-hover transition-all hover:-translate-y-2 group">
-                <div class="w-16 h-16 bg-neon-lime rounded-2xl border-[3px] border-dope-black flex items-center justify-center mb-6 text-3xl group-hover:rotate-12 transition-transform">
-                    🪄
+        <div class="space-y-16">
+            
+            <!-- Group 1 -->
+            <div class="grid grid-cols-2 gap-4 md:gap-8">
+                <!-- Image 1-1 -->
+                <div class="img-card aspect-[4/5] bg-soft-purple relative group">
+                    <img src="https://via.placeholder.com/800x1000/E0B0FF/111111?text=Image+1-1" class="w-full h-full object-cover" alt="Portfolio Image">
                 </div>
-                <h3 class="text-2xl font-bold mb-3">AI Photo Polish</h3>
-                <p class="font-medium text-gray-600">Bad lighting? Messy background? No problem. We transform your product photos to look like a pro studio shoot.</p>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="bg-white p-8 rounded-[2rem] border-[3px] border-dope-black shadow-hard hover:shadow-hard-hover transition-all hover:-translate-y-2 group">
-                <div class="w-16 h-16 bg-hot-pink rounded-2xl border-[3px] border-dope-black flex items-center justify-center mb-6 text-3xl group-hover:-rotate-12 transition-transform">
-                    👗
-                </div>
-                <h3 class="text-2xl font-bold mb-3">Creative Styling</h3>
-                <p class="font-medium text-gray-600">Don't know your vibe? We'll propose styles that fit your brand, from Cyberpunk to Minimalist Nordic.</p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="bg-white p-8 rounded-[2rem] border-[3px] border-dope-black shadow-hard hover:shadow-hard-hover transition-all hover:-translate-y-2 group">
-                <div class="w-16 h-16 bg-electric-blue rounded-2xl border-[3px] border-dope-black flex items-center justify-center mb-6 text-3xl group-hover:rotate-12 transition-transform">
-                    📹
-                </div>
-                <h3 class="text-2xl font-bold mb-3">Dynamic Video</h3>
-                <p class="font-medium text-gray-600">Static images are boring. We animate your products into attention-grabbing videos for TikTok and Reels.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Gallery -->
-    <section id="work" class="px-4 md:px-10 max-w-7xl mx-auto mb-32 w-full">
-        <div class="flex justify-between items-end mb-12">
-            <h2 class="text-4xl md:text-6xl font-black max-w-lg leading-tight">OUR WORKS ✨</h2>
-            <div class="hidden md:block">
-                <img src="https://em-content.zobj.net/source/microsoft-teams/337/star-struck_1f929.png" class="w-16 animate-spin-slow" alt="emoji">
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Project 1 -->
-            <div class="group cursor-pointer">
-                <div class="img-card h-[400px] mb-6 bg-soft-purple relative">
-                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 z-10 transition-colors"></div>
-                     <img src="https://images.unsplash.com/photo-1618172193763-c511deb635ca?q=80&w=1000&auto=format&fit=crop" alt="Abstract 3D">
-                     <div class="absolute top-4 right-4 bg-white border-[3px] border-dope-black px-3 py-1 rounded-full font-bold text-xs z-20">
-                        E-COMMERCE
-                     </div>
-                </div>
-                <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="text-3xl font-bold group-hover:text-electric-blue transition-colors">Sneaker Promo</h3>
-                        <p class="font-medium text-gray-500">From phone pic to 3D Render style</p>
-                    </div>
-                    <div class="w-10 h-10 rounded-full border-[3px] border-dope-black flex items-center justify-center group-hover:bg-neon-lime transition-colors">
-                        <i class="ph-bold ph-arrow-up-right"></i>
-                    </div>
+                <!-- Image 1-2 -->
+                <div class="img-card aspect-[4/5] bg-neon-lime relative group md:mt-12">
+                    <img src="https://via.placeholder.com/800x1000/CCFF00/111111?text=Image+1-2" class="w-full h-full object-cover" alt="Portfolio Image">
                 </div>
             </div>
 
-            <!-- Project 2 -->
-            <div class="group cursor-pointer md:mt-20">
-                <div class="img-card h-[400px] mb-6 bg-neon-lime relative">
-                     <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?q=80&w=1000&auto=format&fit=crop" alt="Fashion AI">
-                     <div class="absolute top-4 right-4 bg-white border-[3px] border-dope-black px-3 py-1 rounded-full font-bold text-xs z-20">
-                        RETAIL STORE
-                     </div>
+            <!-- Group 2 -->
+            <div class="grid grid-cols-2 gap-4 md:gap-8">
+                <!-- Image 2-1 -->
+                <div class="img-card aspect-[4/5] bg-hot-pink relative group md:mt-12">
+                    <img src="https://via.placeholder.com/800x1000/FF3399/111111?text=Image+2-1" class="w-full h-full object-cover" alt="Portfolio Image">
                 </div>
-                <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="text-3xl font-bold group-hover:text-hot-pink transition-colors">Summer Collection</h3>
-                        <p class="font-medium text-gray-500">Lookbook Generation</p>
-                    </div>
-                    <div class="w-10 h-10 rounded-full border-[3px] border-dope-black flex items-center justify-center group-hover:bg-hot-pink group-hover:text-white transition-colors">
-                        <i class="ph-bold ph-arrow-up-right"></i>
-                    </div>
+                <!-- Image 2-2 -->
+                <div class="img-card aspect-[4/5] bg-electric-blue relative group">
+                    <img src="https://via.placeholder.com/800x1000/2D5BFF/FFFFFF?text=Image+2-2" class="w-full h-full object-cover" alt="Portfolio Image">
                 </div>
             </div>
+
+            <!-- Group 3 -->
+            <div class="grid grid-cols-2 gap-4 md:gap-8">
+                <!-- Image 3-1 -->
+                <div class="img-card aspect-[4/5] bg-sunny-yellow relative group">
+                    <img src="https://via.placeholder.com/800x1000/FFDD00/111111?text=Image+3-1" class="w-full h-full object-cover" alt="Portfolio Image">
+                </div>
+                <!-- Image 3-2 -->
+                <div class="img-card aspect-[4/5] bg-white relative group md:mt-12">
+                    <img src="https://via.placeholder.com/800x1000/FFFFFF/111111?text=Image+3-2" class="w-full h-full object-cover" alt="Portfolio Image">
+                </div>
+            </div>
+
+            <!-- Group 4 -->
+            <div class="grid grid-cols-2 gap-4 md:gap-8">
+                <!-- Image 4-1 -->
+                <div class="img-card aspect-[4/5] bg-soft-purple relative group md:mt-12">
+                    <img src="https://via.placeholder.com/800x1000/E0B0FF/111111?text=Image+4-1" class="w-full h-full object-cover" alt="Portfolio Image">
+                </div>
+                <!-- Image 4-2 -->
+                <div class="img-card aspect-[4/5] bg-neon-lime relative group">
+                    <img src="https://via.placeholder.com/800x1000/CCFF00/111111?text=Image+4-2" class="w-full h-full object-cover" alt="Portfolio Image">
+                </div>
+            </div>
+
+            <!-- Group 5 -->
+            <div class="grid grid-cols-2 gap-4 md:gap-8">
+                <!-- Image 5-1 -->
+                <div class="img-card aspect-[4/5] bg-hot-pink relative group">
+                    <img src="https://via.placeholder.com/800x1000/FF3399/111111?text=Image+5-1" class="w-full h-full object-cover" alt="Portfolio Image">
+                </div>
+                <!-- Image 5-2 -->
+                <div class="img-card aspect-[4/5] bg-electric-blue relative group md:mt-12">
+                    <img src="https://via.placeholder.com/800x1000/2D5BFF/FFFFFF?text=Image+5-2" class="w-full h-full object-cover" alt="Portfolio Image">
+                </div>
+            </div>
+
         </div>
     </section>
 
