@@ -44,6 +44,18 @@
                     },
                     animation: {
                         'bounce-slow': 'bounce 3s infinite',
+                        'wiggle': 'wiggle 2s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
                     }
                 }
             }
@@ -76,37 +88,13 @@
             background-color: #CCFF00;
             color: #111111;
         }
-
-        /* 卡片滑动样式 */
-        .slider-perspective {
-            perspective: 1000px;
-            /* 增加 overflow-visible 以便看到溢出的轮播图片 */
-            overflow: visible; 
-        }
-        .slider-card {
-            /* 增加过渡时间，使动画更自然 */
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease, z-index 0s linear 0.3s;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 2rem;
-            background-size: cover;
-            background-position: center;
-            box-shadow: 6px 6px 0px 0px #111111;
-            border: 3px solid #111111;
-            background-repeat: no-repeat;
-            /* 硬件加速 */
-            will-change: transform, opacity; 
-        }
     </style>
 </head>
 <body class="border-x-0 md:border-x-[20px] border-dope-bg flex flex-col items-center w-full">
 
     <!-- Navbar -->
-    <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 w-full">
-        <div class="bg-white border-[3px] border-dope-black rounded-full px-6 py-3 flex items-center justify-between w-full max-w-5xl relative z-50">
+    <nav class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 w-full">
+        <div class="bg-white border-[3px] border-dope-black rounded-full px-6 py-2.5 flex items-center justify-between w-full max-w-5xl relative z-50 shadow-hard-sm">
             <!-- 多巴胺文字 Logo -->
             <a href="#" class="font-display font-bold text-xl md:text-2xl tracking-tight flex items-center gap-1.5 hover:scale-105 transition-transform duration-300">
                 <span class="text-hot-pink">You</span>
@@ -118,6 +106,7 @@
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-2">
                 <a href="#contact" class="px-5 py-2 rounded-full font-bold hover:bg-neon-lime transition-colors border border-transparent hover:border-dope-black">Contact</a>
+                <a href="#work" class="px-5 py-2 rounded-full font-bold hover:bg-electric-blue hover:text-white transition-colors border border-transparent hover:border-dope-black">Work</a>
                 <a href="#pricing" class="px-5 py-2 rounded-full font-bold hover:bg-sunny-yellow transition-colors border border-transparent hover:border-dope-black">Pricing</a>
                 <a href="#contact" class="px-5 py-2 bg-dope-black text-white rounded-full font-bold hover:bg-hot-pink transition-colors">Let's Talk!</a>
             </div>
@@ -130,87 +119,222 @@
             <!-- Mobile Dropdown Menu -->
             <div id="mobile-menu" class="absolute top-[120%] left-0 right-0 bg-white border-[3px] border-dope-black rounded-3xl p-4 shadow-hard hidden flex-col gap-2 text-center overflow-hidden transition-all duration-300 origin-top w-full">
                 <a href="#contact" class="mobile-link py-3 font-display font-bold text-xl hover:bg-neon-lime rounded-xl transition-colors block">Contact</a>
+                <a href="#work" class="mobile-link py-3 font-display font-bold text-xl hover:bg-electric-blue hover:text-white rounded-xl transition-colors block">Work</a>
                 <a href="#pricing" class="mobile-link py-3 font-display font-bold text-xl hover:bg-sunny-yellow rounded-xl transition-colors block">Pricing</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section (Modified: Image Only, Centered with Arrows) -->
-    <header class="w-full pt-32 md:pt-48 pb-20 px-4 md:px-10 max-w-7xl mx-auto relative block overflow-hidden md:overflow-visible">
-        <!-- Changed layout from grid to flex centered -->
-        <div class="flex justify-center items-center max-w-6xl mx-auto">
+    <!-- Hero Section (Modified: 4:3 Aspect, Match Navbar Width, Spacing) -->
+    <!-- Increased top padding (pt-32) and bottom padding (pb-20) for better spacing -->
+    <header class="w-full pt-32 pb-20 px-4 max-w-7xl mx-auto relative block">
+        <div class="flex flex-col items-center justify-center w-full relative">
             
-            <!-- Center: Interactive Card Slider -->
-            <div class="w-full max-w-[320px] md:max-w-md mx-auto relative z-10" id="slider-wrapper">
+            <!-- Main Visual Container -->
+            <!-- max-w-5xl matches the Navbar width -->
+            <div class="relative w-full max-w-5xl mx-auto z-10 group animate-float">
                 
-                <!-- NEW: Navigation Arrows (PC Only) -->
-                <!-- Left Arrow -->
-                <button onclick="prevSlide()" class="hidden md:flex absolute top-1/2 -left-20 transform -translate-y-1/2 z-50 w-14 h-14 bg-white border-[3px] border-dope-black rounded-full items-center justify-center shadow-hard hover:bg-neon-lime hover:scale-110 active:scale-95 transition-all group">
-                    <i class="ph-bold ph-caret-left text-2xl group-hover:-translate-x-1 transition-transform"></i>
-                </button>
+                <!-- Visual Guidance Elements -->
                 
-                <!-- Right Arrow -->
-                <button onclick="nextSlide()" class="hidden md:flex absolute top-1/2 -right-20 transform -translate-y-1/2 z-50 w-14 h-14 bg-white border-[3px] border-dope-black rounded-full items-center justify-center shadow-hard hover:bg-hot-pink hover:text-white hover:scale-110 active:scale-95 transition-all group">
-                    <i class="ph-bold ph-caret-right text-2xl group-hover:translate-x-1 transition-transform"></i>
-                </button>
-
-                <!-- The Slider Container (No overflow hidden, 3:4 aspect) -->
-                <div class="aspect-[3/4] relative slider-perspective cursor-grab active:cursor-grabbing select-none" id="card-slider">
-                    <!-- Slides will be injected here by JS -->
+                <!-- 1. Arrow Pointing Directly at Image -->
+                <div class="absolute top-1/4 -left-8 md:-left-16 lg:-left-24 z-20 animate-pulse hidden md:block">
+                    <svg width="80" height="60" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform rotate-12">
+                        <path d="M0 40 Q 50 10, 90 40 M 80 25 L 90 40 L 75 50" stroke="#FF3399" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="absolute -top-6 left-0 font-display font-bold text-sm bg-white border-2 border-dope-black px-2 py-0.5 rounded rotate-[-10deg]">LOOK!</span>
                 </div>
 
-                <!-- Simple Instructions -->
-                <div class="absolute -bottom-16 left-0 right-0 text-center opacity-60 text-sm font-bold animate-pulse md:hidden">
-                    <i class="ph-bold ph-hand-swipe-left mr-1"></i> Swipe to Explore <i class="ph-bold ph-hand-swipe-right ml-1"></i>
+                <!-- 2. "New" Sticker -->
+                <div class="absolute -top-6 -right-4 md:-right-8 z-30 animate-wiggle">
+                    <div class="bg-sunny-yellow text-dope-black border-[3px] border-dope-black px-4 py-2 rounded-full font-black text-xl shadow-[2px_2px_0px_#111111] transform rotate-6 hover:scale-110 transition-transform cursor-pointer">
+                        SALE! 🔥
+                    </div>
                 </div>
+
+                <!-- 3. Main Image Frame (4:3 Ratio, Clickable) -->
+                <!-- Changed aspect-[4/5] to aspect-[4/3] -->
+                <div class="js-whatsapp-trigger cursor-pointer relative aspect-[4/3] bg-white border-[3px] border-dope-black rounded-[2rem] overflow-hidden transform transition-all duration-300 hover:scale-[1.01] hover:shadow-hard">
+                    <!-- 🔴 MARKETING IMAGE -->
+                    <img src="https://placehold.co/1024x768/2D5BFF/ffffff?text=SUMMER+CAMPAIGN+4:3" alt="Marketing Campaign" class="w-full h-full object-cover">
+                </div>
+
             </div>
 
         </div>
     </header>
 
     <!-- Marquee Section -->
-    <div class="w-full bg-dope-black border-y-[3px] border-dope-black overflow-hidden py-4 rotate-1 scale-105 mb-20 relative z-20">
+    <div class="w-full bg-dope-black border-y-[3px] border-dope-black overflow-hidden py-3 rotate-1 scale-105 mb-24 relative z-20">
         <div class="flex whitespace-nowrap animate-marquee">
-            <span class="text-white font-display font-bold text-4xl mx-8">YOU SHOOT. WE POLISH. •</span>
-            <span class="text-neon-lime font-display font-bold text-4xl mx-8">INSTAGRAM READY •</span>
-            <span class="text-hot-pink font-display font-bold text-4xl mx-8">TIKTOK CONTENT •</span>
-            <span class="text-electric-blue font-display font-bold text-4xl mx-8">PRODUCT PHOTOGRAPHY •</span>
-            <span class="text-white font-display font-bold text-4xl mx-8">YOU SHOOT. WE POLISH. •</span>
-            <span class="text-neon-lime font-display font-bold text-4xl mx-8">INSTAGRAM READY •</span>
-            <span class="text-hot-pink font-display font-bold text-4xl mx-8">TIKTOK CONTENT •</span>
-            <span class="text-electric-blue font-display font-bold text-4xl mx-8">PRODUCT PHOTOGRAPHY •</span>
+            <span class="text-white font-display font-bold text-3xl md:text-4xl mx-8">YOU SHOOT. WE POLISH. •</span>
+            <span class="text-neon-lime font-display font-bold text-3xl md:text-4xl mx-8">SUMMER SALE ON •</span>
+            <span class="text-hot-pink font-display font-bold text-3xl md:text-4xl mx-8">TIKTOK CONTENT •</span>
+            <span class="text-electric-blue font-display font-bold text-3xl md:text-4xl mx-8">LIMITED TIME OFFER •</span>
+            <span class="text-white font-display font-bold text-3xl md:text-4xl mx-8">YOU SHOOT. WE POLISH. •</span>
+            <span class="text-neon-lime font-display font-bold text-3xl md:text-4xl mx-8">SUMMER SALE ON •</span>
         </div>
     </div>
 
     <!-- Section 2: Contact Info -->
     <section id="contact" class="px-4 md:px-10 mb-20 w-full max-w-7xl mx-auto">
-        <div class="bg-electric-blue rounded-[3rem] p-10 md:p-20 border-[3px] border-dope-black shadow-hard text-center relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-40 h-40 bg-neon-lime rounded-full border-[3px] border-dope-black -translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-0 right-0 w-60 h-60 bg-hot-pink rounded-full border-[3px] border-dope-black translate-x-1/3 translate-y-1/3"></div>
+        <div class="bg-electric-blue rounded-[2.5rem] p-8 md:p-16 border-[3px] border-dope-black shadow-hard text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-32 h-32 bg-neon-lime rounded-full border-[3px] border-dope-black -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-0 right-0 w-48 h-48 bg-hot-pink rounded-full border-[3px] border-dope-black translate-x-1/3 translate-y-1/3"></div>
 
             <div class="relative z-10">
-                <h2 class="text-4xl md:text-7xl font-black text-white mb-8 drop-shadow-[4px_4px_0px_#000]">READY TO POLISH YOUR SHOTS?</h2>
-                <p class="text-white text-lg md:text-xl font-bold mb-10 max-w-2xl mx-auto">We handle all orders and payments securely via WhatsApp. Click below to start your project.</p>
+                <h2 class="text-3xl md:text-6xl font-black text-white mb-6 drop-shadow-[4px_4px_0px_#000]">READY TO POLISH?</h2>
+                <p class="text-white text-lg font-bold mb-8 max-w-xl mx-auto leading-relaxed">Don't miss out on our current campaign! Chat with us directly via WhatsApp to claim your offer.</p>
                 
-                <div class="flex flex-col md:flex-row justify-center gap-6 max-w-3xl mx-auto">
-                    <button class="js-whatsapp-trigger flex-1 bg-whatsapp-green text-white px-8 py-6 rounded-2xl border-[3px] border-dope-black shadow-hard hover:bg-white hover:text-whatsapp-green hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex flex-col items-center justify-center group cursor-pointer">
-                        <i class="ph-fill ph-whatsapp-logo text-5xl mb-2 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-2xl font-black">WhatsApp Us</span>
-                        <span class="text-sm font-bold opacity-90 mt-1">Fastest Response ⚡</span>
+                <!-- Buttons Container: Allow flex-wrap, buttons auto-size to content -->
+                <div class="flex flex-col lg:flex-row justify-center items-center gap-4 max-w-4xl mx-auto">
+                    
+                    <!-- WhatsApp Button -->
+                    <button class="js-whatsapp-trigger flex-shrink-0 w-full lg:w-auto bg-whatsapp-green text-white px-8 py-4 rounded-xl border-[3px] border-dope-black shadow-hard hover:bg-white hover:text-whatsapp-green hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex items-center justify-center gap-2 group cursor-pointer">
+                        <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+                        <span class="text-xl font-black">WhatsApp</span>
                     </button>
 
-                    <a href="mailto:youshootipolish@outlook.com" class="flex-1 bg-white text-dope-black px-8 py-6 rounded-2xl border-[3px] border-dope-black shadow-hard hover:bg-dope-black hover:text-white hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex flex-col items-center justify-center group">
-                        <i class="ph-fill ph-envelope-simple text-5xl mb-2 group-hover:scale-110 transition-transform"></i>
-                        <span class="text-2xl font-black">Email Us</span>
-                        <span class="text-sm font-bold opacity-70 mt-1">youshootipolish@outlook.com</span>
+                    <!-- Email Button (Fits Content) -->
+                    <a href="mailto:youshootipolish@outlook.com" class="flex-shrink-0 w-full lg:w-auto bg-white text-dope-black px-8 py-4 rounded-xl border-[3px] border-dope-black shadow-hard hover:bg-dope-black hover:text-white hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex flex-col items-center justify-center gap-1 group text-center min-w-max">
+                        <div class="flex items-center gap-2">
+                            <i class="ph-fill ph-envelope-simple text-3xl"></i>
+                            <span class="text-xl font-black">Email Us</span>
+                        </div>
+                        <!-- Full email displayed, no break-all -->
+                        <span class="text-sm font-bold opacity-70">youshootipolish@outlook.com</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Pricing Section -->
-    <!-- Modified: Reduced bottom margin (mb-32 -> mb-16) to reduce whitespace -->
+    <!-- Section 3: Recent Polishes (12 Images, Click/Touch Scale Effect) -->
+    <section id="work" class="px-4 md:px-8 mb-24 w-full max-w-[1400px] mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 px-2 border-b-[3px] border-dope-black pb-6">
+            <div>
+                <span class="bg-hot-pink text-white px-3 py-1 font-bold text-sm border-2 border-dope-black rounded-md mb-2 inline-block">PORTFOLIO</span>
+                <h2 class="text-4xl md:text-7xl font-black uppercase tracking-tighter">The Gallery</h2>
+            </div>
+            <p class="text-lg font-medium text-gray-600 max-w-xs mt-4 md:mt-0 text-right md:text-left">
+                Curated selection of our finest AI-enhanced imagery.
+            </p>
+        </div>
+
+        <!-- 3-Column Staggered Grid (4 items per column = 12 total) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Column 1 -->
+            <div class="flex flex-col gap-6">
+                <!-- Item 1 -->
+                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                    <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
+                        <div class="aspect-[3/4] relative">
+                            <img src="https://placehold.co/600x800/FF3399/FFFFFF?text=Fashion+Portrait" alt="Work 1" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        </div>
+                    </div>
+                </div>
+                 <!-- Item 4 -->
+                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                    <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
+                         <div class="aspect-[3/4] relative">
+                            <img src="https://placehold.co/600x800/FFDD00/111111?text=Editorial" alt="Work 4" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                         </div>
+                    </div>
+                </div>
+                 <!-- Item 7 -->
+                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                    <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
+                         <div class="aspect-[3/4] relative">
+                            <img src="https://placehold.co/600x800/FF3399/111111?text=Beauty" alt="Work 7" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                         </div>
+                    </div>
+                </div>
+                 <!-- Item 10 -->
+                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                    <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
+                         <div class="aspect-[3/4] relative">
+                            <img src="https://placehold.co/600x800/E0B0FF/ffffff?text=Studio" alt="Work 10" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2 (Offset Top) -->
+            <div class="flex flex-col gap-6 md:mt-12">
+                 <!-- Item 2 -->
+                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                    <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
+                        <div class="aspect-[3/4] relative">
+                            <img src="https://placehold.co/600x800/CCFF00/111111?text=Product+Glow" alt="Work 2" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        </div>
+                    </div>
+                </div>
+                 <!-- Item 5 -->
+                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                    <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
+                         <div class="aspect-[3/4] relative">
+                            <img src="https://placehold.co/600x800/E0B0FF/111111?text=Social+Media" alt="Work 5" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                         </div>
+                    </div>
+                </div>
+                 <!-- Item 8 -->
+                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                    <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
+                         <div class="aspect-[3/4] relative">
+                            <img src="https://placehold.co/600x800/2D5BFF/CCFF00?text=Tech" alt="Work 8" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                         </div>
+                    </div>
+                </div>
+                <!-- Item 11 (New) -->
+                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                    <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
+                         <div class="aspect-[3/4] relative">
+                            <img src="https://placehold.co/600x800/FFDD00/2D5BFF?text=New+Drop" alt="Work 11" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 3 (Offset Middle) -->
+            <div class="flex flex-col gap-6 lg:mt-6">
+                 <!-- Item 3 -->
+                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                    <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
+                        <div class="aspect-[3/4] relative">
+                            <img src="https://placehold.co/600x800/2D5BFF/FFFFFF?text=Lifestyle+Shot" alt="Work 3" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        </div>
+                    </div>
+                </div>
+                 <!-- Item 6 -->
+                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                    <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
+                         <div class="aspect-[3/4] relative">
+                            <img src="https://placehold.co/600x800/111111/FFFFFF?text=Dark+Aesthetic" alt="Work 6" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                         </div>
+                    </div>
+                </div>
+                 <!-- Item 9 -->
+                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                    <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
+                         <div class="aspect-[3/4] relative">
+                            <img src="https://placehold.co/600x800/FFDD00/FF3399?text=Vibrant" alt="Work 9" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                         </div>
+                    </div>
+                </div>
+                <!-- Item 12 (New) -->
+                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                    <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
+                         <div class="aspect-[3/4] relative">
+                            <img src="https://placehold.co/600x800/CCFF00/FF3399?text=Final+Touch" alt="Work 12" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 4: Pricing Section -->
     <section id="pricing" class="px-4 md:px-10 max-w-7xl mx-auto mb-16 w-full">
         <div class="text-center mb-16">
             <h2 class="text-4xl md:text-6xl font-black mb-4">STRAIGHTFORWARD PRICING 🏷️</h2>
@@ -281,7 +405,6 @@
     </section>
 
     <!-- Footer -->
-    <!-- Modified: Reduced padding top/bottom and changed alignment for compactness -->
     <footer class="bg-dope-black text-white pt-12 pb-8 px-6 border-t-[3px] border-dope-black w-full">
         <div class="max-w-7xl mx-auto flex flex-col items-center md:items-start gap-4">
             
@@ -363,132 +486,9 @@
                 else { waModal.classList.remove('hidden'); waModal.classList.add('flex'); setTimeout(() => { waModal.classList.remove('opacity-0'); waModalContent.classList.remove('scale-95'); waModalContent.classList.add('scale-100'); }, 10); }
             });
         });
-        const closeWhatsAppModal = () => { waModal.classList.add('opacity-0'); waModalContent.classList.remove('scale-100'); waModalContent.classList.add('scale-95'); setTimeout(() => { waModal.classList.add('hidden'); waModal.classList.remove('flex'); }, 300); };
+        const closeWhatsAppModal = () => { waModal.classList.add('opacity-0'); waModalContent.classList.remove('scale-100'); waModalContent.classList.add('scale-100'); setTimeout(() => { waModal.classList.add('hidden'); waModal.classList.remove('flex'); }, 300); };
         closeWaModal.addEventListener('click', closeWhatsAppModal);
         waModal.addEventListener('click', (e) => { if (e.target === waModal) closeWhatsAppModal(); });
-
-        // --- UPDATED SLIDER LOGIC (Persistent DOM for Transitions) ---
-        const sliderContainer = document.getElementById('card-slider');
-        
-        // Image Data
-        const slideImages = [
-            'https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/27.png',
-            'https://placehold.co/600x800/CCFF00/111111?text=Polished+Image+2',
-            'https://placehold.co/600x800/FF3399/111111?text=Polished+Image+3',
-            'https://placehold.co/600x800/2D5BFF/ffffff?text=Polished+Image+4',
-            'https://placehold.co/600x800/FFDD00/111111?text=Polished+Image+5'
-        ];
-
-        let currentIndex = 2; // Start in middle
-        let startX = 0;
-        let isDragging = false;
-        let cards = []; // Store references to card elements
-
-        // 1. Initialize DOM Elements ONCE
-        function initSlider() {
-            sliderContainer.innerHTML = ''; // Ensure clear
-            cards = []; // Reset refs
-            
-            slideImages.forEach((src, i) => {
-                const card = document.createElement('div');
-                card.className = 'slider-card';
-                card.style.backgroundImage = `url('${src}')`;
-                
-                // Add click handler for direct selection (optional, but good UX)
-                card.onclick = () => {
-                   const offset = (i - currentIndex + slideImages.length) % slideImages.length;
-                   // Normalize to shortest path
-                   if (offset === 1) nextSlide();
-                   if (offset === slideImages.length - 1) prevSlide();
-                };
-
-                sliderContainer.appendChild(card);
-                cards.push(card);
-            });
-            updateSliderStyles(); // Initial style set
-        }
-
-        // 2. Update Styles based on Current Index
-        function updateSliderStyles() {
-            const total = cards.length;
-            
-            cards.forEach((card, i) => {
-                // Calculate circular distance
-                let offset = (i - currentIndex + total) % total;
-                if (offset > total / 2) offset -= total;
-
-                // Reset common styles
-                card.style.zIndex = '30';
-                card.style.opacity = '0.3';
-                card.style.cursor = 'default';
-
-                // Apply styles based on offset
-                if (offset === 0) {
-                    // Center (Main)
-                    card.style.transform = 'translateX(0) scale(1) rotate(0deg)';
-                    card.style.zIndex = '50';
-                    card.style.opacity = '1';
-                } else if (offset === 1) {
-                    // Right 1 (Waiting)
-                    card.style.transform = 'translateX(65%) scale(0.85) rotate(5deg)';
-                    card.style.zIndex = '40';
-                    card.style.opacity = '0.6';
-                    card.style.cursor = 'pointer';
-                } else if (offset === -1) {
-                    // Left 1 (Waiting)
-                    card.style.transform = 'translateX(-65%) scale(0.85) rotate(-5deg)';
-                    card.style.zIndex = '40';
-                    card.style.opacity = '0.6';
-                    card.style.cursor = 'pointer';
-                } else if (offset === 2 || offset === -3) {
-                    // Right 2 (Far)
-                    card.style.transform = 'translateX(110%) scale(0.7) rotate(10deg)';
-                } else if (offset === -2 || offset === 3) {
-                    // Left 2 (Far)
-                    card.style.transform = 'translateX(-110%) scale(0.7) rotate(-10deg)';
-                }
-            });
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slideImages.length;
-            updateSliderStyles();
-        }
-
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + slideImages.length) % slideImages.length;
-            updateSliderStyles();
-        }
-
-        // Swipe / Drag Logic
-        sliderContainer.addEventListener('mousedown', (e) => {
-            startX = e.clientX;
-            isDragging = true;
-        });
-        
-        sliderContainer.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-        });
-
-        const handleMove = (x) => {
-            if (!isDragging) return;
-            const diff = startX - x;
-            if (Math.abs(diff) > 50) { // Threshold 50px
-                if (diff > 0) nextSlide();
-                else prevSlide();
-                isDragging = false; 
-            }
-        };
-
-        window.addEventListener('mousemove', (e) => { if (isDragging) handleMove(e.clientX); });
-        window.addEventListener('mouseup', () => { isDragging = false; });
-        
-        window.addEventListener('touchmove', (e) => { if (isDragging) handleMove(e.touches[0].clientX); });
-        window.addEventListener('touchend', () => { isDragging = false; });
-        
-        // Initial Init
-        initSlider();
 
     </script>
 </body>
