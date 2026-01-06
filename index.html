@@ -185,22 +185,21 @@
                 <h2 class="text-3xl md:text-6xl font-black text-white mb-6 drop-shadow-[4px_4px_0px_#000]">READY TO POLISH?</h2>
                 <p class="text-white text-lg font-bold mb-8 max-w-xl mx-auto leading-relaxed">Don't miss out on our current campaign! Chat with us directly via WhatsApp to claim your offer.</p>
                 
-                <!-- Buttons Container: Allow flex-wrap, buttons auto-size to content -->
-                <div class="flex flex-col lg:flex-row justify-center items-center gap-4 max-w-4xl mx-auto">
+                <!-- Buttons Container: Use Grid for Equal Size on Desktop -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-4xl mx-auto w-full">
                     
                     <!-- WhatsApp Button -->
-                    <button class="js-whatsapp-trigger flex-shrink-0 w-full lg:w-auto bg-whatsapp-green text-white px-8 py-4 rounded-xl border-[3px] border-dope-black shadow-hard hover:bg-white hover:text-whatsapp-green hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex items-center justify-center gap-2 group cursor-pointer">
+                    <button class="js-whatsapp-trigger w-full h-full bg-whatsapp-green text-white px-8 py-4 rounded-xl border-[3px] border-dope-black shadow-hard hover:bg-white hover:text-whatsapp-green hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex items-center justify-center gap-2 group cursor-pointer min-h-[80px]">
                         <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
                         <span class="text-xl font-black">WhatsApp</span>
                     </button>
 
-                    <!-- Email Button (Fits Content) -->
-                    <a href="mailto:youshootipolish@outlook.com" class="flex-shrink-0 w-full lg:w-auto bg-white text-dope-black px-8 py-4 rounded-xl border-[3px] border-dope-black shadow-hard hover:bg-dope-black hover:text-white hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex flex-col items-center justify-center gap-1 group text-center min-w-max">
+                    <!-- Email Button -->
+                    <a href="mailto:youshootipolish@outlook.com" class="w-full h-full bg-white text-dope-black px-8 py-4 rounded-xl border-[3px] border-dope-black shadow-hard hover:bg-dope-black hover:text-white hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex flex-col items-center justify-center gap-1 group text-center min-h-[80px]">
                         <div class="flex items-center gap-2">
                             <i class="ph-fill ph-envelope-simple text-3xl"></i>
                             <span class="text-xl font-black">Email Us</span>
                         </div>
-                        <!-- Full email displayed, no break-all -->
                         <span class="text-sm font-bold opacity-70">youshootipolish@outlook.com</span>
                     </a>
                 </div>
@@ -208,7 +207,7 @@
         </div>
     </section>
 
-    <!-- Section 3: Recent Polishes (12 Images, Click/Touch Scale Effect) -->
+    <!-- Section 3: Recent Polishes (12 Images, Click/Touch/Hover Scale Effect, Full Color) -->
     <section id="work" class="px-4 md:px-8 mb-24 w-full max-w-[1400px] mx-auto">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12 px-2 border-b-[3px] border-dope-black pb-6">
             <div>
@@ -226,34 +225,34 @@
             <!-- Column 1 -->
             <div class="flex flex-col gap-6">
                 <!-- Item 1 -->
-                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                <div class="group cursor-pointer hover:scale-105 active:scale-105 hover:z-50 active:z-50 transition-transform duration-300 ease-out">
                     <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
                         <div class="aspect-[3/4] relative">
-                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/21.png" alt="Work 1" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/21.png" alt="Work 1" class="w-full h-full object-cover transition-all duration-500">
                         </div>
                     </div>
                 </div>
                  <!-- Item 4 -->
-                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                <div class="group cursor-pointer hover:scale-105 active:scale-105 hover:z-50 active:z-50 transition-transform duration-300 ease-out">
                     <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
                          <div class="aspect-[3/4] relative">
-                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/22.png" alt="Work 4" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/22.png" alt="Work 4" class="w-full h-full object-cover transition-all duration-500">
                          </div>
                     </div>
                 </div>
                  <!-- Item 7 -->
-                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                <div class="group cursor-pointer hover:scale-105 active:scale-105 hover:z-50 active:z-50 transition-transform duration-300 ease-out">
                     <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
                          <div class="aspect-[3/4] relative">
-                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/23.png" alt="Work 7" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/23.png" alt="Work 7" class="w-full h-full object-cover transition-all duration-500">
                          </div>
                     </div>
                 </div>
                  <!-- Item 10 -->
-                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                <div class="group cursor-pointer hover:scale-105 active:scale-105 hover:z-50 active:z-50 transition-transform duration-300 ease-out">
                     <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
                          <div class="aspect-[3/4] relative">
-                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/24.png" alt="Work 10" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/24.png" alt="Work 10" class="w-full h-full object-cover transition-all duration-500">
                          </div>
                     </div>
                 </div>
@@ -262,34 +261,34 @@
             <!-- Column 2 (Offset Top) -->
             <div class="flex flex-col gap-6 md:mt-12">
                  <!-- Item 2 -->
-                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                <div class="group cursor-pointer hover:scale-105 active:scale-105 hover:z-50 active:z-50 transition-transform duration-300 ease-out">
                     <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
                         <div class="aspect-[3/4] relative">
-                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/25.png" alt="Work 2" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/25.png" alt="Work 2" class="w-full h-full object-cover transition-all duration-500">
                         </div>
                     </div>
                 </div>
                  <!-- Item 5 -->
-                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                <div class="group cursor-pointer hover:scale-105 active:scale-105 hover:z-50 active:z-50 transition-transform duration-300 ease-out">
                     <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
                          <div class="aspect-[3/4] relative">
-                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/26.png" alt="Work 5" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/26.png" alt="Work 5" class="w-full h-full object-cover transition-all duration-500">
                          </div>
                     </div>
                 </div>
                  <!-- Item 8 -->
-                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                <div class="group cursor-pointer hover:scale-105 active:scale-105 hover:z-50 active:z-50 transition-transform duration-300 ease-out">
                     <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
                          <div class="aspect-[3/4] relative">
-                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/28.png" alt="Work 8" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/28.png" alt="Work 8" class="w-full h-full object-cover transition-all duration-500">
                          </div>
                     </div>
                 </div>
                 <!-- Item 11 (New) -->
-                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                <div class="group cursor-pointer hover:scale-105 active:scale-105 hover:z-50 active:z-50 transition-transform duration-300 ease-out">
                     <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
                          <div class="aspect-[3/4] relative">
-                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/1.png" alt="Work 11" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/1.png" alt="Work 11" class="w-full h-full object-cover transition-all duration-500">
                          </div>
                     </div>
                 </div>
@@ -298,34 +297,34 @@
             <!-- Column 3 (Offset Middle) -->
             <div class="flex flex-col gap-6 lg:mt-6">
                  <!-- Item 3 -->
-                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                <div class="group cursor-pointer hover:scale-105 active:scale-105 hover:z-50 active:z-50 transition-transform duration-300 ease-out">
                     <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
                         <div class="aspect-[3/4] relative">
-                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/30.png" alt="Work 3" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/30.png" alt="Work 3" class="w-full h-full object-cover transition-all duration-500">
                         </div>
                     </div>
                 </div>
                  <!-- Item 6 -->
-                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                <div class="group cursor-pointer hover:scale-105 active:scale-105 hover:z-50 active:z-50 transition-transform duration-300 ease-out">
                     <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
                          <div class="aspect-[3/4] relative">
-                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/2.png" alt="Work 6" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/2.png" alt="Work 6" class="w-full h-full object-cover transition-all duration-500">
                          </div>
                     </div>
                 </div>
                  <!-- Item 9 -->
-                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                <div class="group cursor-pointer hover:scale-105 active:scale-105 hover:z-50 active:z-50 transition-transform duration-300 ease-out">
                     <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
                          <div class="aspect-[3/4] relative">
-                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/3.png" alt="Work 9" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/3.png" alt="Work 9" class="w-full h-full object-cover transition-all duration-500">
                          </div>
                     </div>
                 </div>
                 <!-- Item 12 (New) -->
-                <div class="group cursor-pointer active:scale-105 active:z-50 transition-transform duration-200">
+                <div class="group cursor-pointer hover:scale-105 active:scale-105 hover:z-50 active:z-50 transition-transform duration-300 ease-out">
                     <div class="relative bg-white border-[3px] border-dope-black rounded-2xl overflow-hidden hover:shadow-hard transition-all duration-300">
                          <div class="aspect-[3/4] relative">
-                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/4.png" alt="Work 12" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img src="https://raw.githubusercontent.com/jerryhuang248-pixel/glowpost-website/main/4.png" alt="Work 12" class="w-full h-full object-cover transition-all duration-500">
                          </div>
                     </div>
                 </div>
@@ -493,4 +492,3 @@
     </script>
 </body>
 </html>
-
